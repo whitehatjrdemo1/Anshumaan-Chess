@@ -44,8 +44,8 @@ class Pawn extends BaseSprite {
           return true;
         } else return false;
       } else if (
-        abs(newBox[0] - this.currentBox[0]) === 1 &&
-        newBox[1] - this.currentBox[1] === 1
+        abs(newBox[1] - this.currentBox[1]) === 1 &&
+        newBox[0] - this.currentBox[0] === -1
       ) {
         console.log("1 box diag move");
 
@@ -66,8 +66,8 @@ class Pawn extends BaseSprite {
           return true;
         } else return false;
       } else if (
-        abs(newBox[0] - this.currentBox[0]) === 1 &&
-        newBox[1] - this.currentBox[1] === -1
+        abs(newBox[1] - this.currentBox[1]) === 1 &&
+        newBox[0] - this.currentBox[0] === 1
       ) {
         console.log("1 box diag move");
 

@@ -223,13 +223,14 @@ class Game {
         playState = "selectpeg";
       }
       if (playState === "play") {
-        if (selectedpeg.checkMove(selectedpos, board) === true) {
+        if (selectedpeg.checkMove(selectedpos, board)) {
+          console.log(selectedpeg.checkMove(selectedpos, board));
           for (var i = 0; i < players.length; i++) {
             for (var j = 0; j < players[i].length; j++) {
               if (
                 i != player.index &&
-                players[i][j].x === selectedpos.x &&
-                players[i][j].y === selectedpos.y
+                players[i][j].x === board[selectedpos[0]][selectedpos[1]].x &&
+                players[i][j].y === board[selectedpos[0]][selectedpos[1]].y
               ) {
                 selectedpeg.movePeg(selectedpos, board);
 
@@ -238,22 +239,25 @@ class Game {
                 playState = "peg taken";
                 player.otherUpdate(i, j);
                 player.update();
+                console.log("other player at destination");
               } else if (
                 i === player.index &&
-                players[i][j].x === selectedpos.x &&
-                players[i][j].y === selectedpos.y
+                players[i][j].x === board[selectedpos[0]][selectedpos[1]].x &&
+                players[i][j].y === board[selectedpos[0]][selectedpos[1]].y
               ) {
                 playState = "selectpeg";
+                console.log("same player at destination");
               } else if (i === player.index) {
                 if (selectedpeg.checkPath([i, j], selectedpos)) {
                   console.log(i + "," + j);
                   console.log(selectedpeg.checkPath([i, j], selectedpos));
                   playState = "wait";
+                  console.log("check path blocked");
                 } else playState = "selectpeg";
-                //check if path blocked
-              }
+              } else playState = "wait";
             }
           }
+
           if (playState === "wait") {
             selectedpeg.movePeg(selectedpos, board);
             player.update();
