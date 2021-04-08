@@ -9,6 +9,7 @@ class BaseSprite {
     this.depth = 0;
     this.velocityX = 0;
     this.velocityY = 0;
+    console.log(imagePath);
     if (imagePath) {
       this.image = loadImage(imagePath);
     }

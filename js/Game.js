@@ -336,9 +336,9 @@ class Game {
       for (var i = 0; i < board[j].length; i++) {
         k++;
         if (k % 2 === 0) {
-          board[j][i].color = "white";
+          board[j][i].color = 64;
         } else {
-          board[j][i].color = "black";
+          board[j][i].color = 192;
         }
 
         board[j][i].display();

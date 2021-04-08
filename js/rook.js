@@ -1,9 +1,9 @@
 class Rook extends BaseSprite {
   constructor(x, y, color) {
     if (color === "white") {
-      var imagePath = null;
+      var imagePath = "../images/rook-white.png";
     } else if (color === "black") {
-      var imagePath = null;
+      var imagePath = "../images/rook-black.png";
     }
     super(x, y, 20, 30, color, imagePath);
     //this.moveAllowedXY = { x: 1, y: 1 };
@@ -11,7 +11,6 @@ class Rook extends BaseSprite {
 
   checkMove(newPosition, board) {
     this.currentBox = this.checkCurrentPosition(this.x, this.y, board);
-
 
     var newBox = newPosition;
 

@@ -19,14 +19,6 @@ var playState = "wait";
 var lastRoll = 0;
 var selectedpeg = "";
 var selectedpos = "";
-function preload() {
-  dice1 = loadImage("./images/1.jpg");
-  dice2 = loadImage("./images/2.jpg");
-  dice3 = loadImage("./images/3.jpg");
-  dice4 = loadImage("./images/4.jpg");
-  dice5 = loadImage("./images/5.jpg");
-  dice6 = loadImage("./images/6.jpg");
-}
 
 function setup() {
   canvas = createCanvas(450, 500);
