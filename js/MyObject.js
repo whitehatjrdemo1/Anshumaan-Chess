@@ -34,21 +34,19 @@ class MyObject {
     var n = newpos[1];
     for (var i = 0; i < players.length; i++) {
       for (var j = 0; j < players[i].length; j++) {
-        console.log(players[i][j].x + "," + players[i][j].y);
-        console.log(board[m][n].x + "," + board[m][n].x);
         if (
           players[i][j].x == board[m][n].x &&
           players[i][j].y == board[m][n].y
         ) {
           console.log("blocked");
-          if (i+1!=player.index) {
-            console.log("opp");
-
-            return "opponent";
-          } else {
+          if (i + 1 == player.index) {
             console.log("player");
 
             return "player";
+          } else {
+            console.log("opponent");
+
+            return "opponent";
           }
         }
       }

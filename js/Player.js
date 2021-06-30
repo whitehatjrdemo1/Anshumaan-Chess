@@ -54,8 +54,10 @@ class Player {
   }
 
   update() {
+    
     var pegs = [];
     for (var i = 0; i < this.pegs.length; i++) {
+      
       pegs.push([this.pegs[i].x, this.pegs[i].y, this.pegs[i].active]);
     }
     var playerIndex = "players/player" + this.index;
