@@ -1,21 +1,16 @@
-class Queen extends BaseSprite {
+class Queen extends MyObject {
   constructor(x, y, color) {
     if (color === "white") {
-      var imagePath = "../images/queen-white.png";
-    } else if (color === "black") {
-      var imagePath = "../images/queen-black.png";
+      var imagePath = "../images/queenw.png";
+    } else {
+      var imagePath = "../images/queenb.png";
     }
-    super(x, y, 20, 30, color, imagePath);
-
-    //this.moveAllowedXY = { x: 1, y: 1 };
+    super(x, y, 30, 45, color, imagePath);
   }
-
-  checkMove(newPosition, board) {
-    this.currentBox = this.checkCurrentPosition(this.x, this.y, board);
-
-    var newBox = newPosition;
-
-    if (newBox) {
+  checkMove(newpos, board) {
+    this.currentBox = this.checkCurrentPos(this.x, this.y, board);
+    var newbox = newpos;
+    if (newbox) {
       return true;
     } else {
       return false;

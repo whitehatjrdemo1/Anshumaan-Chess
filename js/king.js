@@ -1,23 +1,18 @@
-class King extends BaseSprite {
+class King extends MyObject {
   constructor(x, y, color) {
     if (color === "white") {
-      var imagePath = "../images/king-white.png";
-    } else if (color === "black") {
-      var imagePath = "../images/king-black.png";
+      var imagePath = "../images/kingw.png";
+    } else {
+      var imagePath = "../images/kingb.png";
     }
-    super(x, y, 20, 30,  color,imagePath);
-    //this.moveAllowedXY = { x: 1, y: 1 };
+    super(x, y, 30, 45, color, imagePath);
   }
-
-  checkMove(newPosition, board) {
-    this.currentBox = this.checkCurrentPosition(this.x, this.y, board);
-
-
-    var newBox = newPosition
-
+  checkMove(newpos, board) {
+    this.currentBox = this.checkCurrentPos(this.x, this.y, board);
+    var newbox = newpos;
     if (
-      abs(newBox[0] - this.currentBox[0]) <= 1 ||
-      abs(newBox[1] - this.currentBox[1]) <= 1
+      abs(newbox[0] - this.currentBox[0]) <= 1 ||
+      abs(newbox[1] - this.currentBox[1]) <= 1
     ) {
       return true;
     } else {
