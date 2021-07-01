@@ -141,8 +141,11 @@ class Game {
           players[index - 1][i].y = allPlayers[plr].pegs[i][1];
           players[index - 1][i].color = allPlayers[plr].color;
           players[index - 1][i].active = allPlayers[plr].pegs[i][2];
-          if (!players[index - 1][i].active) {
+          if (!players[player.index-1][i].active) {
             player.pegs[i].active = allPlayers[plr].pegs[i][2];
+            player.pegs[i].x = 0;
+            player.pegs[i].y = 0;
+            player.update();
           }
         }
 
@@ -199,7 +202,6 @@ class Game {
                   players[i][j].y === board[selectedpos[0]][selectedpos[1]].y
                 ) {
                   selectedpeg.movePeg(selectedpos, board);
-                  //players[i][j].active = false;
                   playState = "pegtaken";
                   player.otherUpdate(i + 1, j);
 
@@ -228,8 +230,6 @@ class Game {
 
           if (playState === "wait") {
             selectedpeg.movePeg(selectedpos, board);
-            console.log(allPlayers);
-            console.log(player.pegs);
             player.update();
 
             console.log(turn);
